@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 31, 2018 12:01:51 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Disciplina" table="disciplina" catalog="pai" optimistic-lock="version">
+        <id name="idDisciplina" type="java.lang.Integer">
+            <column name="idDisciplina" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="studentiByStudentiIdstudenti" class="pojo.Studenti" fetch="select">
+            <column name="studenti_idstudenti" not-null="true" />
+        </many-to-one>
+        <many-to-one name="studentiByIdstudenti" class="pojo.Studenti" fetch="select">
+            <column name="idstudenti" not-null="true" />
+        </many-to-one>
+        <many-to-one name="subiecte" class="pojo.Subiecte" fetch="select">
+            <column name="subiecte_idsubiecte" not-null="true" />
+        </many-to-one>
+        <property name="dataExamen" type="date">
+            <column name="dataExamen" length="10" />
+        </property>
+        <property name="puncteCredit" type="java.lang.Integer">
+            <column name="puncteCredit" />
+        </property>
+    </class>
+</hibernate-mapping>
